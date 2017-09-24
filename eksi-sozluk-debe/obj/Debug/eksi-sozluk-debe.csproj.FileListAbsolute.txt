@@ -1,0 +1,22 @@
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.exe
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.dll
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.xml
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.Properties.Resources.resources
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csproj.GenerateResource.Cache
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.exe
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.FrmEksiSozlukDebe.resources
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.exe
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.exe
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.dll
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.pdb
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.xml
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csprojResolveAssemblyReference.cache
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.FrmEksiSozlukDebe.resources
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.Properties.Resources.resources
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csproj.GenerateResource.Cache
+D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csprojResolveAssemblyReference.cache
