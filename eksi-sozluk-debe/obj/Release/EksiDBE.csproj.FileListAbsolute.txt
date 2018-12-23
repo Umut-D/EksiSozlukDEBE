@@ -9,3 +9,6 @@ D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Release\eksi_d
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.GenerateResource.Cache
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Release\eksi-debe.exe
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Release\eksi-debe.pdb
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.exe.config
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.exe
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.pdb
