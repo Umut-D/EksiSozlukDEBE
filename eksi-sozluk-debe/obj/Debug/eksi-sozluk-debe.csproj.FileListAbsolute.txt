@@ -20,3 +20,14 @@ D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.Properties.Resources.resources
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe - Kopya\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csproj.GenerateResource.Cache
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csprojResolveAssemblyReference.cache
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.exe
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.pdb
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.exe
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\eksi-sozluk-debe.pdb
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csprojResolveAssemblyReference.cache
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.FrmEksiSozlukDebe.resources
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi_sozluk_debe.Properties.Resources.resources
+C:\Users\Zeta\Desktop\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-sozluk-debe.csproj.GenerateResource.Cache

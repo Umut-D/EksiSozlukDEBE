@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace eksi_sozluk_debe
+namespace eksi_debe
 {
     static class Program
     {
@@ -13,7 +13,7 @@ namespace eksi_sozluk_debe
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmEksiSozlukDebe());
+            Application.Run(new FrmEksi());
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
