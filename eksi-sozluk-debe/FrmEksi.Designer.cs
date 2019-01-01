@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEksi));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.tsmiDebeYukle = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiTarihSec = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiBilgi = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmGuncelle = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHakkinda = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,9 +42,10 @@
             this.btnGit = new System.Windows.Forms.Button();
             this.btnSonraki = new System.Windows.Forms.Button();
             this.btnOnceki = new System.Windows.Forms.Button();
-            this.tsProgressBar = new System.Windows.Forms.ProgressBar();
             this.ssButonlar = new System.Windows.Forms.StatusStrip();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.tsProgressBar = new System.Windows.Forms.ProgressBar();
+            this.dtpTarihSec = new System.Windows.Forms.DateTimePicker();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panelUst.SuspendLayout();
@@ -54,6 +56,7 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(22, 22);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDebeYukle,
+            this.tsmiTarihSec,
             this.tsmiBilgi,
             this.tscEntryListesi});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +71,13 @@
             this.tsmiDebeYukle.Size = new System.Drawing.Size(107, 31);
             this.tsmiDebeYukle.Text = "Debe Yükle";
             this.tsmiDebeYukle.Click += new System.EventHandler(this.tsmiDebeYukle_Click);
+            // 
+            // tsmiTarihSec
+            // 
+            this.tsmiTarihSec.Name = "tsmiTarihSec";
+            this.tsmiTarihSec.Size = new System.Drawing.Size(89, 31);
+            this.tsmiTarihSec.Text = "Tarih Seç";
+            this.tsmiTarihSec.Click += new System.EventHandler(this.tsmiTarihSec_Click);
             // 
             // tsmiBilgi
             // 
@@ -90,7 +100,7 @@
             this.tsmHakkinda.Name = "tsmHakkinda";
             this.tsmHakkinda.Size = new System.Drawing.Size(160, 28);
             this.tsmHakkinda.Text = "Hakkında";
-            this.tsmHakkinda.Click += new System.EventHandler(this.tsmHakkinda_Click);
+            this.tsmHakkinda.Click += new System.EventHandler(this.tsmiHakkinda_Click);
             // 
             // tscEntryListesi
             // 
@@ -174,14 +184,6 @@
             this.btnOnceki.UseVisualStyleBackColor = true;
             this.btnOnceki.Click += new System.EventHandler(this.btnOnceki_Click);
             // 
-            // tsProgressBar
-            // 
-            this.tsProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tsProgressBar.Location = new System.Drawing.Point(781, 639);
-            this.tsProgressBar.Name = "tsProgressBar";
-            this.tsProgressBar.Size = new System.Drawing.Size(161, 32);
-            this.tsProgressBar.TabIndex = 5;
-            // 
             // ssButonlar
             // 
             this.ssButonlar.AutoSize = false;
@@ -204,13 +206,32 @@
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(937, 559);
             this.webBrowser.TabIndex = 1;
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             this.webBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser_Navigating);
+            // 
+            // tsProgressBar
+            // 
+            this.tsProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tsProgressBar.Location = new System.Drawing.Point(781, 639);
+            this.tsProgressBar.Name = "tsProgressBar";
+            this.tsProgressBar.Size = new System.Drawing.Size(161, 32);
+            this.tsProgressBar.TabIndex = 5;
+            // 
+            // dtpTarihSec
+            // 
+            this.dtpTarihSec.Location = new System.Drawing.Point(114, 2);
+            this.dtpTarihSec.Name = "dtpTarihSec";
+            this.dtpTarihSec.Size = new System.Drawing.Size(20, 30);
+            this.dtpTarihSec.TabIndex = 6;
+            this.dtpTarihSec.Visible = false;
+            this.dtpTarihSec.CloseUp += new System.EventHandler(this.dtpTarihSec_CloseUp);
             // 
             // FrmEksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 671);
+            this.Controls.Add(this.dtpTarihSec);
             this.Controls.Add(this.tsProgressBar);
             this.Controls.Add(this.panelUst);
             this.Controls.Add(this.statusStrip);
@@ -251,6 +272,8 @@
         public System.Windows.Forms.Button btnGit;
         private System.Windows.Forms.StatusStrip ssButonlar;
         public System.Windows.Forms.WebBrowser webBrowser;
+        private System.Windows.Forms.ToolStripMenuItem tsmiTarihSec;
+        private System.Windows.Forms.DateTimePicker dtpTarihSec;
     }
 }
 

@@ -22,3 +22,15 @@ D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\EksiDBE.
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-debe.exe
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\eksi-debe.pdb
 D:\Belgelerim\Programlar\C#\eksi-sozluk-debe\eksi-sozluk-debe\obj\Debug\EksiDBE.csprojResolveAssemblyReference.cache
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\eksi-debe.exe.config
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\eksi-debe.exe
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\eksi-debe.pdb
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\eksi-debe.exe
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\eksi-debe.pdb
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.dll
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.pdb
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Debug\HtmlAgilityPack.xml
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\EksiDBE.csprojResolveAssemblyReference.cache
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\eksi_debe.FrmEksi.resources
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\eksi_debe.Properties.Resources.resources
+D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Debug\EksiDBE.csproj.GenerateResource.Cache

@@ -9,12 +9,20 @@ namespace eksi_debe.Islemler
 {
     class Debe : Degiskenler
     {
-        public void WebBaglanti()
+        private string Adres()
+        {
+            string secilenGun = "?date=" + SecilenTarih.ToString(@"yyyy-MM-dd");
+            string gun = Sozlock + secilenGun;
+
+            return gun;
+        }
+
+        private void WebBaglanti()
         {
             WebClient webBaglanti = new WebClient();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-            webBaglanti.DownloadFile(Sozlock, Dosya);
+            webBaglanti.DownloadFile(Adres(), Dosya);
             HtmlBelge.Load(Dosya, Encoding.UTF8);
         }
 
@@ -23,18 +31,20 @@ namespace eksi_debe.Islemler
             WebBaglanti();
 
             Degiskenler degiskenler = new Degiskenler();
-            
+
             // Tüm entryleri indirerek Generic Listelere ekle (Tuple kullanıp kullanmama arasında çok kararsız kaldım)
             int sayac = 1;
+            DegiskenTemizle();
+
             try
             {
                 for (sayac = 1; sayac < 52; sayac++)
                 {
-                    Baslik.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Basliklar(sayac)).InnerText.Replace("&#39;","'"));
+                    Baslik.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Basliklar(sayac)).InnerText.Replace("&#39;", "'"));
                     Icerik.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Icerikler(sayac)).InnerHtml);
                     Yazar.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Yazarlar(sayac)).InnerHtml);
                     Link.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Linkler(sayac)).Attributes["href"].Value);
-                    Zaman.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Zamanlar(sayac)).InnerText);               
+                    Zaman.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Zamanlar(sayac)).InnerText);
                 }
             }
             catch (Exception)
@@ -43,12 +53,16 @@ namespace eksi_debe.Islemler
             }
 
             // Başlıkları tek seferde ToolStripComboBox'a aktar
+            tscListe.Items.Clear();
             tscListe.Items.AddRange(Baslik.ToArray());
         }
 
         public string DebeGoruntule(int entryNo)
         {
-            return "<html><body style='background-color:#cbcbcb;color: black;'><p style='font-size:26px;font-family:Cambria;font-weight:bold'>" + Baslik[entryNo] + "</p>" + "<font face='Calibri'>" + Icerik[entryNo] + "<br/><br/><strong>" + Yazar[entryNo] + "</strong><br/>" + Zaman[entryNo] + "</font></body></html>";
+            return
+                "<html><body style='background-color:#cbcbcb;color: black;'><p style='font-size:26px;font-family:Cambria;font-weight:bold'>" +
+                Baslik[entryNo] + "</p>" + "<font face='Calibri'>" + Icerik[entryNo] + "<br/><br/><strong>" +
+                Yazar[entryNo] + "</strong><br/>" + Zaman[entryNo] + "</font></body></html>";
         }
 
         public string Gezinti(int sayi, ToolStripComboBox tscEntryListesi)
@@ -66,10 +80,12 @@ namespace eksi_debe.Islemler
 
         public void Bilgilendirme(ToolStripStatusLabel tsslDurum)
         {
-            DateTime gun = Convert.ToDateTime(Zaman[0]);
-         
+            // Değiştirilen entry saatleri tarih gösteriminde sorun yapmasın diye Zaman değişkenindeki Tarih alanı alınıyor 
+            string[] zaman = Zaman[0].Split(' ');
+            DateTime gun = Convert.ToDateTime(zaman[0]);
+
             tsslDurum.ForeColor = Color.Green;
-            tsslDurum.Text = gun.ToLongDateString() + @" tarihli DEBE'ler gösteriliyor";
+            tsslDurum.Text = gun.ToLongDateString() + @" DEBE'ler gösteriliyor";
         }
     }
 }

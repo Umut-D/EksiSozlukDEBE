@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using eksi_debe.Islemler;
 using eksi_debe.Sistem;
@@ -14,27 +15,57 @@ namespace eksi_debe
             Butonlar = new Butonlar(this);
         }
 
-        readonly Debe _debe = new Debe();
+        private readonly Debe _debe = new Debe();
         public Butonlar Butonlar { get; }
         private int _sayi;
 
         private void FrmEksi_Load(object sender, EventArgs e)
         {
+            dtpTarihSec.MaxDate = DateTime.Today.Subtract(new TimeSpan(1));
+            dtpTarihSec.MinDate = new DateTime(2015, 06, 04);
+
             tsslDurum.Text = Baglanti.Kontrol();
             tsslDurum.ForeColor = Baglanti.Renk(tsslDurum.Text);
         }
 
-        public void tsmiDebeYukle_Click(object sender, EventArgs e)
+        private void tsmiDebeYukle_Click(object sender, EventArgs e)
         {
             tsProgressBar.Value = 0;
 
-            _debe.Indir(tscEntryListesi);
-            _debe.Bilgilendirme(tsslDurum);
+            try
+            {
+                _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+                _debe.Indir(tscEntryListesi);
+                _debe.Bilgilendirme(tsslDurum);
 
-            Butonlar.Aktif();
-            webBrowser.DocumentText = _debe.Gezinti(0, tscEntryListesi);
+                Butonlar.Aktif();
+                webBrowser.DocumentText = _debe.Gezinti(0, tscEntryListesi);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    @"Günün seçilen entrylerinde bir sorun var. Muhtemelen DEBE'nin kayıtlara geçmediği bir gün seçtiniz. Lütfen başka bir gün seçiniz.", @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             tsProgressBar.Value = 100;
+        }
+
+        // tsmiTarihSec_Click eyleminde tarih seçim kontrolünün çıkması için gerekli kodlar
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
+        private const uint WM_SYSKEYDOWN = 0x104;
+
+        private void tsmiTarihSec_Click(object sender, EventArgs e)
+        {
+            SendMessage(dtpTarihSec.Handle, WM_SYSKEYDOWN, (int) Keys.Down, 0);
+        }
+
+        // DateTimePicker'dan tarih seçildiğinde DEBE yükle
+        private void dtpTarihSec_CloseUp(object sender, EventArgs e)
+        {
+            _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+            tsmiDebeYukle_Click(this, e);
         }
 
         private void btnSonraki_Click(object sender, EventArgs e)
@@ -79,9 +110,10 @@ namespace eksi_debe
             new Guncelleme().Kontrol();
         }
 
-        private void tsmHakkinda_Click(object sender, EventArgs e)
+        private void tsmiHakkinda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Bu program ile Kutsal Bilgi Kaynağı Ek$i Sözlük'teki Dünün En Beğenilen Entry'lerini (DEBE) kolayca okuyabilirsiniz.", @"Hakkında", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"Bu program ile Kutsal Bilgi Kaynağı Ek$i Sözlük'teki Dünün En Beğenilen Entry'lerini (DEBE) kolayca okuyabilirsiniz.",
+                @"Hakkında", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void webBrowser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
@@ -89,12 +121,22 @@ namespace eksi_debe
             // Mevcut linklere tıklandığı anda, program harici bir tarayıcıda linkleri aç
             if (e.Url.ToString().Equals("about:blank", StringComparison.CurrentCultureIgnoreCase))
                 return;
-
+            
             // Gerekli düzenlemeyi alarak sorgu linkini hazırla (WebBrowser içindeki Bkz'leri tarayıcıda açmak için)
             Process.Start(@"http://eksisozluk.com" + e.Url.PathAndQuery);
             e.Cancel = true;
         }
 
+        // Ekşi Sözlük haricindeki linkleri mevcut web tarayıcısında aç
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            HtmlElementCollection linkElements = webBrowser.Document?.GetElementsByTagName("a");
+
+            if (linkElements != null)
+                foreach (HtmlElement link in linkElements)
+                    link.Click += (s, args) => { Process.Start(link.GetAttribute("href")); };                
+        }
+        
         // ProcessCmdKey'i ezme sayesinde sağ ve sol oka basılarak entryler ileri-geri götürülebiliyor
         // Mecvut metodu ezmem gerekti. Sınıfa aktarım yapılamadı
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

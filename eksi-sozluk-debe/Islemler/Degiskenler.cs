@@ -17,6 +17,26 @@ namespace eksi_debe.Islemler
         public HtmlDocument HtmlBelge { get; set; } = new HtmlDocument();
         public Uri Sozlock => new Uri("http://www.sozlock.com/");
         public string Dosya => AppDomain.CurrentDomain.BaseDirectory + @"Entryler";
+        private DateTime _secilenTarih;
+
+        public DateTime SecilenTarih
+        {
+            get { return _secilenTarih; }
+            set
+            {
+                // DEBE'nin, kullanıcının tam olarak istediği tarih çıkması için gün arttırımı yap
+                _secilenTarih = value.AddDays(1);
+            }
+        }
+    
+        public void DegiskenTemizle()
+        {
+            Baslik.Clear();
+            Icerik.Clear();
+            Yazar.Clear();
+            Link.Clear();
+            Zaman.Clear();
+        }
 
         #region Html Agility Pack ile çekilen XPATH kodları
 

@@ -28,7 +28,7 @@ namespace eksi_debe.Sistem
 
                     string versiyonNo = xmlOku.GetAttribute("version");
 
-                    if (versiyonNo == "1.2")
+                    if (versiyonNo == "1.21")
                         MessageBox.Show(@"Program günceldir. Yeni versiyon çıkana kadar şimdilik en iyisi bu.", @"Güncelle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                     {
