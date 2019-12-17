@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using eksi_debe.Araclar;
+using eksi_debe.Internet;
 using eksi_debe.Islemler;
-using eksi_debe.Sistem;
 
 namespace eksi_debe
 {
@@ -21,8 +22,7 @@ namespace eksi_debe
 
         private void FrmEksi_Load(object sender, EventArgs e)
         {
-            dtpTarihSec.MaxDate = DateTime.Today.Subtract(new TimeSpan(1));
-            dtpTarihSec.MinDate = new DateTime(2015, 06, 04);
+            TarihAraliklari();
 
             tsslDurum.Text = Baglanti.Kontrol();
             tsslDurum.ForeColor = Baglanti.Renk(tsslDurum.Text);
@@ -34,23 +34,25 @@ namespace eksi_debe
 
             try
             {
-                _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+                DateTime tarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+
+                _debe.SecilenTarih = tarih;
                 _debe.Indir(tscEntryListesi);
                 _debe.Bilgilendirme(tsslDurum);
 
-                Butonlar.Aktif();
+                Butonlar.AktifHaleGetir();
                 webBrowser.DocumentText = _debe.Gezinti(0, tscEntryListesi);
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                    @"Günün seçilen entrylerinde bir sorun var. Muhtemelen DEBE'nin kayıtlara geçmediği bir gün seçtiniz. Lütfen başka bir gün seçiniz.", @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Günün seçilen entrylerinde bir sorun var. Muhtemelen DEBE'nin kayıtlara geçmediği bir gün seçtiniz. Lütfen başka bir gün seçiniz.", @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             tsProgressBar.Value = 100;
         }
 
         // tsmiTarihSec_Click eyleminde tarih seçim kontrolünün çıkması için gerekli kodlar
+
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
 
@@ -61,10 +63,11 @@ namespace eksi_debe
             SendMessage(dtpTarihSec.Handle, WM_SYSKEYDOWN, (int) Keys.Down, 0);
         }
 
-        // DateTimePicker'dan tarih seçildiğinde DEBE yükle
         private void dtpTarihSec_CloseUp(object sender, EventArgs e)
         {
             _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+
+            // DateTimePicker'dan tarih seçildiğinde hemen DEBE'yi yükle
             tsmiDebeYukle_Click(this, e);
         }
 
@@ -73,8 +76,8 @@ namespace eksi_debe
             _sayi++;
 
             // Girilen sayı indirilen entry adedinden büyükse sayıyı düşür
-            if (_sayi == _debe.EntryAdet - 1)
-                _sayi = _debe.EntryAdet - 2;
+            if (_sayi == _debe.Adet - 1)
+                _sayi = _debe.Adet - 2;
 
             webBrowser.DocumentText = _debe.Gezinti(_sayi, tscEntryListesi);
         }
@@ -92,7 +95,7 @@ namespace eksi_debe
 
         private void btnGit_Click(object sender, EventArgs e)
         {
-            _debe.Git(_sayi);
+            _debe.DebeSayfasinaGit(_sayi);
         }
 
         private void tscEntryListesi_DropDownClosed(object sender, EventArgs e)
@@ -102,12 +105,12 @@ namespace eksi_debe
 
             // İlgili entry numarasına giderek mevcut entry numarasını değiştir
             webBrowser.DocumentText = _debe.Gezinti(tscEntryListesi.SelectedIndex, tscEntryListesi);
-            _sayi = _debe.EntrySayi;
+            _sayi = _debe.Sayi;
         }
 
         private void tsmGuncelle_Click(object sender, EventArgs e)
         {
-            new Guncelleme().Kontrol();
+            new Guncelle().Kontrol();
         }
 
         private void tsmiHakkinda_Click(object sender, EventArgs e)
@@ -132,13 +135,14 @@ namespace eksi_debe
         {
             HtmlElementCollection linkElements = webBrowser.Document?.GetElementsByTagName("a");
 
-            if (linkElements != null)
-                foreach (HtmlElement link in linkElements)
-                    link.Click += (s, args) => { Process.Start(link.GetAttribute("href")); };                
+            if (linkElements == null)
+                return;
+
+            foreach (HtmlElement link in linkElements)
+                link.Click += (s, args) => { Process.Start(link.GetAttribute("href")); };
         }
-        
+
         // ProcessCmdKey'i ezme sayesinde sağ ve sol oka basılarak entryler ileri-geri götürülebiliyor
-        // Mecvut metodu ezmem gerekti. Sınıfa aktarım yapılamadı
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -152,6 +156,12 @@ namespace eksi_debe
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void TarihAraliklari()
+        {
+            dtpTarihSec.MaxDate = DateTime.Today.Subtract(new TimeSpan(1));
+            dtpTarihSec.MinDate = new DateTime(2015, 06, 04);
         }
     }
 }

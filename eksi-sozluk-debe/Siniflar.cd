@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="eksi_debe.Internet.Guncelle">
+    <Position X="0.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAQAAAAAAAAAAgAAAgAAAAAA=</HashCode>
+      <FileName>Internet\Guncelle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eksi_debe.Internet.Baglanti">
+    <Position X="2.5" Y="1" Width="1.75" />
+    <NestedTypes>
+      <Enum Name="eksi_debe.Internet.Baglanti.InternetConnectionStateFlags" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Internet\Baglanti.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Internet\Baglanti.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eksi_debe.Islemler.Debe">
+    <Position X="6.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAQAIAAAAAAABAQAAAAAQAFAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Islemler\Debe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="eksi_debe.Islemler.Entry">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAKgEAAAAAAAgAAAAAkABAAAEQAAAAQAAAAAA=</HashCode>
+      <FileName>Islemler\Entry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9.13" />
+</ClassDiagram>

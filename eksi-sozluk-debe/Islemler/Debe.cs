@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace eksi_debe.Islemler
 {
-    class Debe : Degiskenler
+    class Debe : Entry
     {
-        private string Adres()
+        private string WebAdresiOlustur()
         {
+            Uri sozlockAdres = new Uri("https://sozlock.com/");
             string secilenGun = "?date=" + SecilenTarih.ToString(@"yyyy-MM-dd");
-            string gun = Sozlock + secilenGun;
 
-            return gun;
+            return sozlockAdres + secilenGun;
         }
 
         private void WebBaglanti()
@@ -22,37 +22,33 @@ namespace eksi_debe.Islemler
             WebClient webBaglanti = new WebClient();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-            webBaglanti.DownloadFile(Adres(), Dosya);
-            HtmlBelge.Load(Dosya, Encoding.UTF8);
+            string dosya = AppDomain.CurrentDomain.BaseDirectory + @"Entryler";
+            webBaglanti.DownloadFile(WebAdresiOlustur(), dosya);
+            HtmlBelge.Load(dosya, Encoding.UTF8);
         }
 
         public void Indir(ToolStripComboBox tscListe)
         {
             WebBaglanti();
+            EntryleriTemizle();
 
-            Degiskenler degiskenler = new Degiskenler();
-
-            // Tüm entryleri indirerek Generic Listelere ekle (Tuple kullanıp kullanmama arasında çok kararsız kaldım)
             int sayac = 1;
-            DegiskenTemizle();
-
             try
             {
                 for (sayac = 1; sayac < 52; sayac++)
                 {
-                    Baslik.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Basliklar(sayac)).InnerText.Replace("&#39;", "'"));
-                    Icerik.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Icerikler(sayac)).InnerHtml);
-                    Yazar.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Yazarlar(sayac)).InnerHtml);
-                    Link.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Linkler(sayac)).Attributes["href"].Value);
-                    Zaman.Add(HtmlBelge.DocumentNode.SelectSingleNode(degiskenler.Zamanlar(sayac)).InnerText);
+                    Baslik.Add(HtmlBelge.DocumentNode.SelectSingleNode(Xpath.Basliklar(sayac)).InnerText.Replace("&#39;", "'"));
+                    Icerik.Add(HtmlBelge.DocumentNode.SelectSingleNode(Xpath.Icerikler(sayac)).InnerHtml);
+                    Yazar.Add(HtmlBelge.DocumentNode.SelectSingleNode(Xpath.Yazarlar(sayac)).InnerHtml);
+                    Link.Add(HtmlBelge.DocumentNode.SelectSingleNode(Xpath.Linkler(sayac)).Attributes["href"].Value);
+                    Zaman.Add(HtmlBelge.DocumentNode.SelectSingleNode(Xpath.Zamanlar(sayac)).InnerText);
                 }
             }
             catch (Exception)
             {
-                EntryAdet = sayac;
+                Adet = sayac;
             }
 
-            // Başlıkları tek seferde ToolStripComboBox'a aktar
             tscListe.Items.Clear();
             tscListe.Items.AddRange(Baslik.ToArray());
         }
@@ -61,21 +57,17 @@ namespace eksi_debe.Islemler
         {
             return
                 "<html><body style='background-color:#cbcbcb;color: black;'><p style='font-size:26px;font-family:Cambria;font-weight:bold'>" +
-                Baslik[entryNo] + "</p>" + "<font face='Calibri'>" + Icerik[entryNo] + "<br/><br/><strong>" +
-                Yazar[entryNo] + "</strong><br/>" + Zaman[entryNo] + "</font></body></html>";
+                Baslik[entryNo] + "</p>" + "<font face='Calibri'>" + Icerik[entryNo] +
+                "<br/><br/><strong>" + Yazar[entryNo] + "</strong><br/>" + Zaman[entryNo] +
+                "</font></body></html>";
         }
 
         public string Gezinti(int sayi, ToolStripComboBox tscEntryListesi)
         {
-            EntrySayi = sayi;
-            tscEntryListesi.SelectedIndex = EntrySayi;
+            Sayi = sayi;
+            tscEntryListesi.SelectedIndex = Sayi;
 
-            return DebeGoruntule(EntrySayi);
-        }
-
-        public Process Git(int sayi)
-        {
-            return Process.Start(Link[sayi]);
+            return DebeGoruntule(Sayi);
         }
 
         public void Bilgilendirme(ToolStripStatusLabel tsslDurum)
@@ -86,6 +78,20 @@ namespace eksi_debe.Islemler
 
             tsslDurum.ForeColor = Color.Green;
             tsslDurum.Text = gun.ToLongDateString() + @" DEBE'ler gösteriliyor";
+        }
+
+        public Process DebeSayfasinaGit(int sayi)
+        {
+            return Process.Start(Link[sayi]);
+        }
+
+        public void EntryleriTemizle()
+        {
+            Baslik.Clear();
+            Icerik.Clear();
+            Yazar.Clear();
+            Link.Clear();
+            Zaman.Clear();
         }
     }
 }

@@ -23,8 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://umutd.com</SupportUrl>
+    <ProductName>Ekşi Sözlük DEBE</ProductName>
+    <PublisherName>Umut D.</PublisherName>
+    <SuiteName>Ekşi Sözlük DEBE</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.1.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -69,17 +73,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sistem\Butonlar.cs" />
+    <Compile Include="Islemler\Entry.cs" />
+    <Compile Include="Islemler\Xpath.cs" />
+    <Compile Include="Araclar\Butonlar.cs" />
     <Compile Include="FrmEksi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEksi.Designer.cs">
       <DependentUpon>FrmEksi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sistem\Baglanti.cs" />
+    <Compile Include="Internet\Baglanti.cs" />
     <Compile Include="Islemler\Debe.cs" />
-    <Compile Include="Islemler\Degiskenler.cs" />
-    <Compile Include="Sistem\Guncelleme.cs" />
+    <Compile Include="Internet\Guncelle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmEksi.resx">
@@ -106,6 +111,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Siniflar.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="eksi-logo.ico" />
@@ -127,6 +133,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
