@@ -32,7 +32,7 @@ namespace eksi_debe.Internet
 
         private void XmlOku(WebClient webIstemcisi)
         {
-            string guncellemeLinki = @"http://www.umutd.com/wp-content/program-versions/eksi-sozluk-debe.xml";
+            string guncellemeLinki = @"https://raw.githubusercontent.com/Umut-D/umutd.com/master/assets/program-versions/eksi-sozluk-debe.xml";
             XmlReader xmlOku = XmlReader.Create(webIstemcisi.OpenRead(guncellemeLinki) ?? throw new InvalidOperationException());
 
             while (xmlOku.Read())
