@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace eksi_debe.Internet
@@ -24,20 +23,12 @@ namespace eksi_debe.Internet
         public static string Kontrol()
         {
             InternetConnectionStateFlags flags = 0;
-            bool baglantiDurumu = InternetGetConnectedState(ref flags, 0);
 
+            bool baglantiDurumu = InternetGetConnectedState(ref flags, 0);
             if (baglantiDurumu)
                 return @"İnternet bağlantınız var ve bu iyi bir şey.";
 
             return @"İnternet bağlantınız maalesef yok. Modemi bir kapatıp açın derim.";
-        }
-
-        public static Color Renk(string durumYazisi)
-        {
-            if (durumYazisi.Contains("var"))
-                return Color.Green;
-        
-            return Color.MediumVioletRed;
         }
     }
 }

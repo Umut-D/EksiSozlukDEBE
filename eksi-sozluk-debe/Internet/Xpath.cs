@@ -1,28 +1,28 @@
-﻿namespace eksi_debe.Islemler
+﻿namespace eksi_debe.Internet
 {
     class Xpath
     {
-        public string Basliklar(int sayi)
+        public static string Basliklar(int sayi)
         {
             return @"/html/body/main/div/div[2]/div[2]/ul/li[" + sayi + "]/h3";
         }
 
-        public string Icerikler(int sayi)
+        public static string Icerikler(int sayi)
         {
             return @"/html/body/main/div//div[2]/div[2]/ul/li[" + sayi + "]/div[1]/div/p";
         }
 
-        public string Yazarlar(int sayi)
+        public static string Yazarlar(int sayi)
         {
             return @"/html/body/main/div/div[2]/div[2]/ul/li[" + sayi + "]/div[1]/div/div/div[2]/a";
         }
 
-        public string Linkler(int sayi)
+        public static string Linkler(int sayi)
         {
             return "/html/body/main/div//div[2]/div[2]/ul/li[" + sayi + "]/div[2]/a";
         }
 
-        public string Zamanlar(int sayi)
+        public static string Zamanlar(int sayi)
         {
             return @"/html/body/main/div//div[2]/div[2]/ul/li[" + sayi + "]/div[1]/div/div/div[2]/span";
         }

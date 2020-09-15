@@ -70,14 +70,14 @@
             this.tsmiDebeYukle.Name = "tsmiDebeYukle";
             this.tsmiDebeYukle.Size = new System.Drawing.Size(107, 31);
             this.tsmiDebeYukle.Text = "Debe Yükle";
-            this.tsmiDebeYukle.Click += new System.EventHandler(this.tsmiDebeYukle_Click);
+            this.tsmiDebeYukle.Click += new System.EventHandler(this.TsmiDebeYukle_Click);
             // 
             // tsmiTarihSec
             // 
             this.tsmiTarihSec.Name = "tsmiTarihSec";
             this.tsmiTarihSec.Size = new System.Drawing.Size(89, 31);
             this.tsmiTarihSec.Text = "Tarih Seç";
-            this.tsmiTarihSec.Click += new System.EventHandler(this.tsmiTarihSec_Click);
+            this.tsmiTarihSec.Click += new System.EventHandler(this.TsmiTarihSec_Click);
             // 
             // tsmiBilgi
             // 
@@ -93,14 +93,14 @@
             this.tsmGuncelle.Name = "tsmGuncelle";
             this.tsmGuncelle.Size = new System.Drawing.Size(160, 28);
             this.tsmGuncelle.Text = "Güncelle";
-            this.tsmGuncelle.Click += new System.EventHandler(this.tsmGuncelle_Click);
+            this.tsmGuncelle.Click += new System.EventHandler(this.TsmGuncelle_Click);
             // 
             // tsmHakkinda
             // 
             this.tsmHakkinda.Name = "tsmHakkinda";
             this.tsmHakkinda.Size = new System.Drawing.Size(160, 28);
             this.tsmHakkinda.Text = "Hakkında";
-            this.tsmHakkinda.Click += new System.EventHandler(this.tsmiHakkinda_Click);
+            this.tsmHakkinda.Click += new System.EventHandler(this.TsmiHakkinda_Click);
             // 
             // tscEntryListesi
             // 
@@ -112,7 +112,7 @@
             this.tscEntryListesi.Name = "tscEntryListesi";
             this.tscEntryListesi.Size = new System.Drawing.Size(415, 31);
             this.tscEntryListesi.Tag = "";
-            this.tscEntryListesi.DropDownClosed += new System.EventHandler(this.tscEntryListesi_DropDownClosed);
+            this.tscEntryListesi.DropDownClosed += new System.EventHandler(this.TscEntryListesi_DropDownClosed);
             // 
             // statusStrip
             // 
@@ -156,7 +156,7 @@
             this.btnGit.TabIndex = 5;
             this.btnGit.Text = "< Git >";
             this.btnGit.UseVisualStyleBackColor = true;
-            this.btnGit.Click += new System.EventHandler(this.btnGit_Click);
+            this.btnGit.Click += new System.EventHandler(this.BtnGit_Click);
             // 
             // btnSonraki
             // 
@@ -169,7 +169,7 @@
             this.btnSonraki.TabIndex = 4;
             this.btnSonraki.Text = "Sonraki >>";
             this.btnSonraki.UseVisualStyleBackColor = true;
-            this.btnSonraki.Click += new System.EventHandler(this.btnSonraki_Click);
+            this.btnSonraki.Click += new System.EventHandler(this.BtnSonraki_Click);
             // 
             // btnOnceki
             // 
@@ -182,7 +182,7 @@
             this.btnOnceki.TabIndex = 3;
             this.btnOnceki.Text = "<< Önceki";
             this.btnOnceki.UseVisualStyleBackColor = true;
-            this.btnOnceki.Click += new System.EventHandler(this.btnOnceki_Click);
+            this.btnOnceki.Click += new System.EventHandler(this.BtnOnceki_Click);
             // 
             // ssButonlar
             // 
@@ -206,8 +206,8 @@
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(937, 559);
             this.webBrowser.TabIndex = 1;
-            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
-            this.webBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser_Navigating);
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.WebBrowser_DocumentCompleted);
+            this.webBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.WebBrowser_Navigating);
             // 
             // tsProgressBar
             // 
@@ -224,7 +224,7 @@
             this.dtpTarihSec.Size = new System.Drawing.Size(20, 30);
             this.dtpTarihSec.TabIndex = 6;
             this.dtpTarihSec.Visible = false;
-            this.dtpTarihSec.CloseUp += new System.EventHandler(this.dtpTarihSec_CloseUp);
+            this.dtpTarihSec.CloseUp += new System.EventHandler(this.DtpTarihSec_CloseUp);
             // 
             // FrmEksi
             // 

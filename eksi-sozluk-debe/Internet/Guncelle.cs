@@ -12,28 +12,18 @@ namespace eksi_debe.Internet
         {
             try
             {
-                XmlOku(webIstemcisi: WebIstemcisi());
+                XmlOku(new WebClient());
             }
             catch (Exception)
             {
-                MessageBox.Show(@"Bağlantı sağlanırken istenmeyen bir hata meydana geldi. İnternet bağlantınızı kontrol etseniz iyi olur.",
-                    @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Bağlantı sağlanırken istenmeyen bir hata meydana geldi. İnternet bağlantınızı kontrol etseniz iyi olur.", @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private WebClient WebIstemcisi()
-        {
-            // Web sitesine RSS okuyucu olarak istem yapmak gerek. Yoksa istek reddedilebilmekte
-            WebClient webIstemcisi = new WebClient();
-            webIstemcisi.Headers.Add("user-agent", "MyRSSReader/1.0");
-
-            return webIstemcisi;
         }
 
         private void XmlOku(WebClient webIstemcisi)
         {
-            string guncellemeLinki = @"https://raw.githubusercontent.com/Umut-D/umutd.com/master/assets/program-versions/eksi-sozluk-debe.xml";
-            XmlReader xmlOku = XmlReader.Create(webIstemcisi.OpenRead(guncellemeLinki) ?? throw new InvalidOperationException());
+            string link = @"https://raw.githubusercontent.com/Umut-D/umutd.com/master/assets/program-versions/eksi-sozluk-debe.xml";
+            XmlReader xmlOku = XmlReader.Create(webIstemcisi.OpenRead(link) ?? throw new InvalidOperationException());
 
             while (xmlOku.Read())
             {
@@ -48,15 +38,15 @@ namespace eksi_debe.Internet
         private void VersiyonKarsilastir(XmlReader xmlOku)
         {
             // TODO Her yeni versiyonda bu alan ve sunucudaki XML dosyası güncellecek
-            string versiyon = "1.22";
-            string sunucudakiVersiyon = xmlOku.GetAttribute("version");
+            string versiyon = "1.23";
+            string sunucuVersiyon = xmlOku.GetAttribute("version");
 
-            if (sunucudakiVersiyon == versiyon)
+            if (sunucuVersiyon == versiyon)
                 MessageBox.Show(@"Program günceldir. Yeni versiyon çıkana kadar şimdilik en iyisi bu.", @"Güncelle",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                DialogResult guncelleDiyalog = MessageBox.Show(@"Yeni bir güncelleme var. Programı " + sunucudakiVersiyon + @" versiyonuna yükselttim. Yenilikler var. Web sayfasına girip indirmek ister misiniz?",
+                DialogResult guncelleDiyalog = MessageBox.Show(@"Yeni bir güncelleme var. Programı " + sunucuVersiyon + @" versiyonuna yükselttim. Yenilikler var. Web sayfasına girip indirmek ister misiniz?",
                     @"Güncelle", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
                 if (guncelleDiyalog == DialogResult.OK)
