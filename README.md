@@ -9,4 +9,3 @@ Ekşi Sözlük'teki Dünün En Beğenilen Entry'leri (Debe) gösteren program.
 * Dünün En Beğenilen Entry’lerini gösterme,
 * Eski tarihlerdeki Dünün En Beğenilen Entry’lerini gösterme,
 * Hi-DPI ekranlara destek.
-
