@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using eksi_debe.Araclar;
 using eksi_debe.Internet;
-using eksi_debe.Sozluk;
 
 namespace eksi_debe
 {
@@ -12,32 +12,34 @@ namespace eksi_debe
         public FrmEksi()
         {
             InitializeComponent();
-            FormIslemleri = new FormIslemleri(this);
         }
 
         private readonly Debe _debe = new Debe();
-        public FormIslemleri FormIslemleri { get; }
 
         private void FrmEksi_Load(object sender, EventArgs e)
         {
-            FormIslemleri.TarihAraliklari(dtpTarihSec);
+            dtpTarihSec.MaxDate = DateTime.Today.Subtract(new TimeSpan(1));
+            dtpTarihSec.MinDate = new DateTime(2015, 06, 04);
+
             tsslDurum.Text = Baglanti.Kontrol();
         }
 
         private void TsmiDebeYukle_Click(object sender, EventArgs e)
         {
             tsProgressBar.Value = 0;
+            tscEntryListesi.Items.Clear();
 
             try
             {
-                DateTime tarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
+                _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
 
-                _debe.SecilenTarih = tarih;
-                _debe.Indir(tscEntryListesi);
-                _debe.Bilgilendirme(tsslDurum);
+                tscEntryListesi.Items.AddRange(_debe.Indir());
 
-                FormIslemleri.Aktif();
-                webBrowser.DocumentText = _debe.Gezinti(0, tscEntryListesi);
+                AltBilgi();
+                ButonlarAktif();
+
+                webBrowser.DocumentText = _debe.Goruntule(0);
+                tscEntryListesi.SelectedIndex = 0;
             }
             catch (Exception)
             {
@@ -47,13 +49,35 @@ namespace eksi_debe
             tsProgressBar.Value = 100;
         }
 
+        private void AltBilgi()
+        {
+            tsslDurum.Text = _debe.Gun().ToLongDateString() + @" DEBE'ler gösteriliyor";
+            tsslDurum.ForeColor = Color.Green;
+        }
+
+        private void ButonlarAktif()
+        {
+            btnSonraki.Enabled = true;
+            btnOnceki.Enabled = true;
+            btnGit.Enabled = true;
+            tscEntryListesi.Enabled = true;
+        }
+
+        // TsmiTarihSec_Click eyleminde tarih seçim kontrolünün çıkması için gerekli kodlar
+        public const uint WM_SYSKEYDOWN = 0x104;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
         private void TsmiTarihSec_Click(object sender, EventArgs e)
         {
-            FormIslemleri.SendMessage(dtpTarihSec.Handle, FormIslemleri.WM_SYSKEYDOWN, (int) Keys.Down, 0);
+            SendMessage(dtpTarihSec.Handle, WM_SYSKEYDOWN, (int) Keys.Down, 0);
         }
 
         private void DtpTarihSec_CloseUp(object sender, EventArgs e)
         {
+            tscEntryListesi.Items.Clear();
+
             _debe.SecilenTarih = Convert.ToDateTime(dtpTarihSec.Value.ToShortDateString());
 
             TsmiDebeYukle_Click(this, e);
@@ -64,7 +88,8 @@ namespace eksi_debe
             if (tscEntryListesi.SelectedIndex == tscEntryListesi.Items.Count - 1)
                 tscEntryListesi.SelectedIndex = tscEntryListesi.Items.Count - 2;
 
-            webBrowser.DocumentText = _debe.Gezinti(tscEntryListesi.SelectedIndex + 1, tscEntryListesi);
+            webBrowser.DocumentText = _debe.Goruntule(tscEntryListesi.SelectedIndex + 1);
+            tscEntryListesi.SelectedIndex += 1;
         }
 
         private void BtnOnceki_Click(object sender, EventArgs e)
@@ -72,7 +97,8 @@ namespace eksi_debe
             if (tscEntryListesi.SelectedIndex == 0)
                 tscEntryListesi.SelectedIndex = 1;
 
-            webBrowser.DocumentText = _debe.Gezinti(tscEntryListesi.SelectedIndex - 1, tscEntryListesi);
+            webBrowser.DocumentText = _debe.Goruntule(tscEntryListesi.SelectedIndex - 1);
+            tscEntryListesi.SelectedIndex -= 1;
         }
 
         private void BtnGit_Click(object sender, EventArgs e)
@@ -85,7 +111,8 @@ namespace eksi_debe
             // TscBox seçildiğinde Menu Strip'e odaklan (Fare ile üzerine gelince butonun renklenmesi için)
             menuStrip.Focus();
 
-            webBrowser.DocumentText = _debe.Gezinti(tscEntryListesi.SelectedIndex, tscEntryListesi);
+            webBrowser.DocumentText = _debe.Goruntule(tscEntryListesi.SelectedIndex);
+            tscEntryListesi.SelectedIndex = tscEntryListesi.SelectedIndex;
         }
 
         private void TsmGuncelle_Click(object sender, EventArgs e)

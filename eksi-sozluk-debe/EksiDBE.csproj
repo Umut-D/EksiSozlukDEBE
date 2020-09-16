@@ -28,7 +28,7 @@
     <PublisherName>Umut D.</PublisherName>
     <SuiteName>Ekşi Sözlük DEBE</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.3.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -76,7 +76,6 @@
     <Compile Include="Sozluk\Entry.cs" />
     <Compile Include="Araclar\HtmlIslemleri.cs" />
     <Compile Include="Internet\Xpath.cs" />
-    <Compile Include="Araclar\FormIslemleri.cs" />
     <Compile Include="FrmEksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,7 +83,7 @@
       <DependentUpon>FrmEksi.cs</DependentUpon>
     </Compile>
     <Compile Include="Internet\Baglanti.cs" />
-    <Compile Include="Sozluk\Debe.cs" />
+    <Compile Include="Internet\Debe.cs" />
     <Compile Include="Internet\Guncelle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,7 +111,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Siniflar.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="eksi-logo.ico" />

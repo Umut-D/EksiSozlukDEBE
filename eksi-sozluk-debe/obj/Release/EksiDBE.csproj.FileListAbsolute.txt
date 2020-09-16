@@ -26,3 +26,17 @@ D:\Downloads\eksi-sozluk-debe-proje\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Releas
 D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csprojAssemblyReference.cache
 D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CoreCompileInputs.cache
 D:\Belgelerim\Programlar\C#\+ Github\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CopyComplete
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.exe.config
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.exe
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.pdb
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.dll
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.xml
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csprojAssemblyReference.cache
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi_debe.FrmEksi.resources
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi_debe.Properties.Resources.resources
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.GenerateResource.cache
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CoreCompileInputs.cache
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CopyComplete
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.exe
+C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.pdb
