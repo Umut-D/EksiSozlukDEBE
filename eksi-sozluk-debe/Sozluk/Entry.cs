@@ -1,6 +1,6 @@
 ﻿namespace eksi_debe.Sozluk
 {
-    class Entry
+    public class Entry
     {
         public string Baslik { get; set; }
         public string Icerik { get; set; }

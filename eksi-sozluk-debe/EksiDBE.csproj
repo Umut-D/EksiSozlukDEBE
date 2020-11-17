@@ -28,7 +28,7 @@
     <PublisherName>Umut D.</PublisherName>
     <SuiteName>Ekşi Sözlük DEBE</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.4.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sozluk\Entry.cs" />
-    <Compile Include="Araclar\HtmlIslemleri.cs" />
     <Compile Include="Internet\Xpath.cs" />
     <Compile Include="FrmEksi.cs">
       <SubType>Form</SubType>

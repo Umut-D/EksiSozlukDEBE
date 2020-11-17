@@ -40,3 +40,17 @@ C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.cspr
 C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CopyComplete
 C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.exe
 C:\Users\Zeta\Desktop\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.pdb
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.exe.config
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.exe
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\eksi-debe.pdb
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.dll
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.pdb
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\bin\Release\HtmlAgilityPack.xml
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csprojAssemblyReference.cache
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi_debe.FrmEksi.resources
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi_debe.Properties.Resources.resources
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.GenerateResource.cache
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CoreCompileInputs.cache
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\EksiDBE.csproj.CopyComplete
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.exe
+D:\Belgelerim\Eksi-Sozluk-Debe\eksi-sozluk-debe\obj\Release\eksi-debe.pdb

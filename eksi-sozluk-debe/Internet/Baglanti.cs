@@ -24,8 +24,7 @@ namespace eksi_debe.Internet
         {
             InternetConnectionStateFlags flags = 0;
 
-            bool baglantiDurumu = InternetGetConnectedState(ref flags, 0);
-            if (baglantiDurumu)
+            if (InternetGetConnectedState(ref flags, 0))
                 return @"İnternet bağlantınız var ve bu iyi bir şey.";
 
             return @"İnternet bağlantınız maalesef yok. Modemi bir kapatıp açın derim.";

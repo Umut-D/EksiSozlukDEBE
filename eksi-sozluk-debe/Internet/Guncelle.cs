@@ -38,7 +38,7 @@ namespace eksi_debe.Internet
         private void VersiyonKarsilastir(XmlReader xmlOku)
         {
             // TODO Her yeni versiyonda bu alan ve sunucudaki XML dosyası güncellecek
-            string versiyon = "1.23";
+            string versiyon = "1.25";
             string sunucuVersiyon = xmlOku.GetAttribute("version");
 
             if (sunucuVersiyon == versiyon)
