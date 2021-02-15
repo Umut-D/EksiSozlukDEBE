@@ -68,14 +68,14 @@
             // tsmiDebeYukle
             // 
             this.tsmiDebeYukle.Name = "tsmiDebeYukle";
-            this.tsmiDebeYukle.Size = new System.Drawing.Size(107, 31);
+            this.tsmiDebeYukle.Size = new System.Drawing.Size(111, 31);
             this.tsmiDebeYukle.Text = "Debe Yükle";
             this.tsmiDebeYukle.Click += new System.EventHandler(this.TsmiDebeYukle_Click);
             // 
             // tsmiTarihSec
             // 
             this.tsmiTarihSec.Name = "tsmiTarihSec";
-            this.tsmiTarihSec.Size = new System.Drawing.Size(89, 31);
+            this.tsmiTarihSec.Size = new System.Drawing.Size(93, 31);
             this.tsmiTarihSec.Text = "Tarih Seç";
             this.tsmiTarihSec.Click += new System.EventHandler(this.TsmiTarihSec_Click);
             // 
@@ -85,20 +85,20 @@
             this.tsmGuncelle,
             this.tsmHakkinda});
             this.tsmiBilgi.Name = "tsmiBilgi";
-            this.tsmiBilgi.Size = new System.Drawing.Size(54, 31);
+            this.tsmiBilgi.Size = new System.Drawing.Size(58, 31);
             this.tsmiBilgi.Text = "Bilgi";
             // 
             // tsmGuncelle
             // 
             this.tsmGuncelle.Name = "tsmGuncelle";
-            this.tsmGuncelle.Size = new System.Drawing.Size(160, 28);
+            this.tsmGuncelle.Size = new System.Drawing.Size(174, 30);
             this.tsmGuncelle.Text = "Güncelle";
             this.tsmGuncelle.Click += new System.EventHandler(this.TsmGuncelle_Click);
             // 
             // tsmHakkinda
             // 
             this.tsmHakkinda.Name = "tsmHakkinda";
-            this.tsmHakkinda.Size = new System.Drawing.Size(160, 28);
+            this.tsmHakkinda.Size = new System.Drawing.Size(174, 30);
             this.tsmHakkinda.Text = "Hakkında";
             this.tsmHakkinda.Click += new System.EventHandler(this.TsmiHakkinda_Click);
             // 
@@ -129,7 +129,7 @@
             // tsslDurum
             // 
             this.tsslDurum.Name = "tsslDurum";
-            this.tsslDurum.Size = new System.Drawing.Size(50, 27);
+            this.tsslDurum.Size = new System.Drawing.Size(50, 25);
             this.tsslDurum.Text = "Hazır";
             // 
             // panelUst
@@ -147,7 +147,7 @@
             // 
             // btnGit
             // 
-            this.btnGit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGit.Enabled = false;
             this.btnGit.Font = new System.Drawing.Font("Calibri", 9.969231F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGit.Location = new System.Drawing.Point(420, 564);

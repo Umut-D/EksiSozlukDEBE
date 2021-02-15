@@ -6,6 +6,6 @@
         public string Icerik { get; set; }
         public string Yazar { get; set; }
         public string Link { get; set; }
-        public string Zaman { get; set; }
+        public string Tarih { get; set; }
     }
 }

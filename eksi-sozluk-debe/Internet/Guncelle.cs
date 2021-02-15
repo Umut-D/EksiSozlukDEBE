@@ -8,50 +8,59 @@ namespace eksi_debe.Internet
 {
     public class Guncelle
     {
-        public void Kontrol()
+        private XmlReader _xmlOku;
+
+        public void VersiyonKontroluYap()
         {
-            try
-            {
-                XmlOku(new WebClient());
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(@"Bağlantı sağlanırken istenmeyen bir hata meydana geldi. İnternet bağlantınızı kontrol etseniz iyi olur.", @"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Baglanti baglanti = new Baglanti();
+            if (baglanti.InternetVarMi())
+                WebXmlBaglanti();
         }
 
-        private void XmlOku(WebClient webIstemcisi)
+        private void WebXmlBaglanti()
         {
-            string link = @"https://raw.githubusercontent.com/Umut-D/umutd.com/master/assets/program-versions/eksi-sozluk-debe.xml";
-            XmlReader xmlOku = XmlReader.Create(webIstemcisi.OpenRead(link) ?? throw new InvalidOperationException());
+            string guncellemeLinki = @"https://raw.githubusercontent.com/Umut-D/umutd.com/master/assets/program-versions/eksi-sozluk-debe.xml";
 
-            while (xmlOku.Read())
+            WebClient webIstemcisi = new WebClient();
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            _xmlOku = XmlReader.Create(webIstemcisi.OpenRead(guncellemeLinki) ?? throw new InvalidOperationException());
+
+            WebXmlOku();
+        }
+
+        private void WebXmlOku()
+        {
+            while (_xmlOku.Read())
             {
-                // XML dosyasında eksi kelimesiyle baslayan alan bulunmazsa okuma yapma
-                if (xmlOku.NodeType != XmlNodeType.Element || xmlOku.Name != "eksi" || !xmlOku.HasAttributes)
+                if (_xmlOku.NodeType != XmlNodeType.Element || _xmlOku.Name != "eksi" || !_xmlOku.HasAttributes)
                     continue;
 
-                VersiyonKarsilastir(xmlOku);
+                VersiyonlariKarsilastir();
             }
         }
 
-        private void VersiyonKarsilastir(XmlReader xmlOku)
+        private void VersiyonlariKarsilastir()
         {
-            // TODO Her yeni versiyonda bu alan ve sunucudaki XML dosyası güncellecek
-            string versiyon = "1.25";
-            string sunucuVersiyon = xmlOku.GetAttribute("version");
-
-            if (sunucuVersiyon == versiyon)
-                MessageBox.Show(@"Program günceldir. Yeni versiyon çıkana kadar şimdilik en iyisi bu.", @"Güncelle",
+            if (MevcutVersiyon() == SunucudakiVersiyon())
+                MessageBox.Show(@"Program günceldir. Yenisi çıkana kadar şimdilik en iyisi bu.", @"Güncelle",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                DialogResult guncelleDiyalog = MessageBox.Show(@"Yeni bir güncelleme var. Programı " + sunucuVersiyon + @" versiyonuna yükselttim. Yenilikler var. Web sayfasına girip indirmek ister misiniz?",
-                    @"Güncelle", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult diyalog = MessageBox.Show($@"Yeni bir güncelleme var. Programı {SunucudakiVersiyon()} versiyonuna yükselttim. Web sayfasına girip indirmek ister misiniz?", @"Güncelle", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-                if (guncelleDiyalog == DialogResult.OK)
+                if (diyalog == DialogResult.OK)
                     Process.Start("http://www.umutd.com/programlar/eksi-sozluk-debe");
             }
+        }
+
+        private string MevcutVersiyon()
+        {
+            return "1.26";
+        }
+
+        private string SunucudakiVersiyon()
+        {
+            return _xmlOku.GetAttribute("version");
         }
     }
 }

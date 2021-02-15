@@ -28,7 +28,7 @@
     <PublisherName>Umut D.</PublisherName>
     <SuiteName>Ekşi Sözlük DEBE</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.5.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.6.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -73,8 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sozluk\Goruntule.cs" />
+    <Compile Include="Sozlock\SozlockTarih.cs" />
+    <Compile Include="Sozlock\SozlockIndir.cs" />
     <Compile Include="Sozluk\Entry.cs" />
-    <Compile Include="Internet\Xpath.cs" />
+    <Compile Include="XPath\SozlockXpath.cs" />
     <Compile Include="FrmEksi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +85,7 @@
       <DependentUpon>FrmEksi.cs</DependentUpon>
     </Compile>
     <Compile Include="Internet\Baglanti.cs" />
-    <Compile Include="Internet\Debe.cs" />
+    <Compile Include="Sozlock\SozlockDebe.cs" />
     <Compile Include="Internet\Guncelle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
